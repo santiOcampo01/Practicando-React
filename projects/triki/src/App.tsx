@@ -66,7 +66,7 @@ const App = () => {
         Reiniciar
       </button>
       <section className="game">
-        {board.map((_, i) => (
+        {board.map((_: unknown, i: number) => (
           <Square key={i} index={i} updateBoard={updateBoard} isSelected={null}>
             {conditionImageOrText(board[i])}
           </Square>
