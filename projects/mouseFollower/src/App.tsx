@@ -23,9 +23,21 @@ function App() {
     }
   }, [enabled])
 
+  useEffect(() => {
+    document.body.classList.toggle("no-cursor", enabled)
+    const cursorBlue = document.querySelector('.cursorBlue') as HTMLElement | null;
+    if (cursorBlue) {
+      cursorBlue.style.display = enabled ? 'block' : 'none';
+    }
+
+    return () => {
+      document.body.classList.remove("no-cursor")
+    }
+  }, [enabled])
+
   return (
     <main>
-      <div
+      <div  className='cursorBlue'
         style={{
           position: 'absolute',
           backgroundColor: '#09f',
